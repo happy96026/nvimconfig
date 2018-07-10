@@ -1,4 +1,4 @@
-﻿call plug#begin('~/AppData/Local/nvim/plugged')
+﻿call plug#begin('~/.local/share/nvim/plugged')
 Plug 'skielbasa/vim-material-monokai'
 Plug 'junegunn/seoul256.vim'
 Plug 'kaicataldo/material.vim'
@@ -19,17 +19,12 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'nview/vim-flake8'
+"Plug 'nview/vim-flake8'
 call plug#end()
 
 " Vim Settings
-set shell=bash
-set shellcmdflag=--norc
-set shellxquote=\"
-set shellslash
-set backspace=2
 set hidden
 set number
 set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab smarttab
@@ -46,7 +41,7 @@ vmap j gj
 vmap k gk
 nmap j gj
 nmap k gk
-let $NYAOVIMRC = "~/AppData/Roaming/NyaoVim/nyaovimrc.html"
+let $NYAOVIMRC = "~/.config/nyaovim/nyaovimrc.html"
 au VimEnter * bd
 let g:NERDTreeChDirMode = 2
 "set cursorline
@@ -105,5 +100,3 @@ set completeopt-=preview
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 set ambiwidth=double
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
-
-cd ~/Documents/minsoung
