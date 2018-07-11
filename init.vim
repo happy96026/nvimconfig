@@ -19,9 +19,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi'
-"Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plug 'nview/vim-flake8'
 call plug#end()
 
 " Vim Settings
@@ -61,7 +60,7 @@ syntax on
 
 " Airline settings
 let g:airline_theme = 'material'
-"let g:airline_powerline_fonts = "1"
+let g:airline_powerline_fonts = "1"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#enabled = 1
@@ -85,10 +84,13 @@ let g:indentLine_char = '|'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 0
-let g:ale_linters = {'python': ['flake8']}
-let g:ale_fixers = {'python': ['yapf']}
+let g:ale_linters = {'python': ['pylint'], 'html': ['htmlhint'], 'javascript': ['eslint'], 'css': ['stylelint']}
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" echodoc
+let g:echodoc#enable_at_startup = 1
+set noshowmode
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
@@ -98,5 +100,6 @@ set completeopt-=preview
 " Web Dev Icon
 "let g:webdevicons_conceal_nerdtree_brackets = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-set ambiwidth=double
+"set ambiwidth=double
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
