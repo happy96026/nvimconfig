@@ -21,6 +21,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'daeyun/vim-matlab'
+Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 " Vim Settings
@@ -33,15 +35,14 @@ set hlsearch
 set scrolloff=3
 set clipboard=unnamedplus
 set mouse=a
-map <C-Tab> :bn<CR>
-map <C-S-Tab> :bp<CR>
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
 map <leader>w :w<CR>
 vmap j gj
 vmap k gk
 nmap j gj
 nmap k gk
 let $NYAOVIMRC = "~/.config/nyaovim/nyaovimrc.html"
-au VimEnter * bd
 let g:NERDTreeChDirMode = 2
 "set cursorline
 
@@ -55,7 +56,7 @@ let g:NERDTreeChDirMode = 2
 set termguicolors
 set background=dark
 colorscheme material
-let g:material_theme_style = 'palenight'
+let g:material_theme_style = 'dark'
 syntax on
 
 " Airline settings
