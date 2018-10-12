@@ -28,7 +28,7 @@ call plug#end()
 " Vim Settings
 set hidden
 set number
-set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab smarttab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
 set autoindent copyindent
 set hlsearch
 "set autochdir
@@ -73,8 +73,6 @@ hi NonText guifg=bg
 
 " Nerdtree settings
 map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeHighlightCursorline = 0
 au VimEnter * NERDTree
 
@@ -102,5 +100,5 @@ set completeopt-=preview
 "let g:webdevicons_conceal_nerdtree_brackets = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "set ambiwidth=double
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
