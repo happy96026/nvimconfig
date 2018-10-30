@@ -15,7 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'JulesWang/css.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi'
@@ -23,6 +23,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'daeyun/vim-matlab'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'mattn/emmet-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'junegunn/fzf'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " Vim Settings
@@ -31,7 +35,6 @@ set number
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
 set autoindent copyindent
 set hlsearch
-"set autochdir
 set scrolloff=3
 set clipboard=unnamedplus
 set mouse=a
@@ -42,25 +45,40 @@ vmap j gj
 vmap k gk
 nmap j gj
 nmap k gk
-let $NYAOVIMRC = "~/.config/nyaovim/nyaovimrc.html"
-let g:NERDTreeChDirMode = 2
-"set cursorline
+filetype plugin indent on
+set cursorline
+set rnu
 
 " seoul256 colorscheme
-"let g:seoul256_background = 236
+"set termguicolors
+"let g:seoul256_background = 235
 "colo seoul256
 "set background=dark
 "syntax on
 
 " material colorscheme
-set termguicolors
-set background=dark
-colorscheme material
-let g:material_theme_style = 'dark'
+"set termguicolors
+"colorscheme material
+"let g:material_theme_style = 'palenight'
+"set background=dark
+"syntax on
+
+ "onedark colorscheme
+colorscheme onedark
+if (has("autocmd") && !has("gui_running"))
+    augroup colorset
+        autocmd!
+        let s:colors = onedark#GetColors()
+        autocmd ColorScheme * call onedark#set_highlight("cssAttr", { "fg" : s:colors.blue })
+        autocmd ColorScheme * call onedark#set_highlight("cssFontAttr", { "fg" : s:colors.blue })
+        autocmd ColorScheme * call onedark#set_highlight("cssUnitDecorators", { "fg" : s:colors.red })
+    augroup END
+endif
 syntax on
+set termguicolors
 
 " Airline settings
-let g:airline_theme = 'material'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = "1"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -71,21 +89,25 @@ autocmd FileType python setlocal nosmartindent
 
 hi NonText guifg=bg
 
-" Nerdtree settings
+" NerdTree settings
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline = 0
-au VimEnter * NERDTree
+"let NERDTreeHighlightCursorline = 0
+"au VimEnter * NERDTree
+augroup nerdtreedisablecursorline
+    autocmd!
+    autocmd FileType nerdtree setlocal nocursorline
+augroup end
 
 " IndentLines settings
 let g:indentLine_char = '|'
 
 " Ale settings
-let g:ale_lint_on_text_changed = 'never'
 let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 0
-let g:ale_linters = {'python': ['pylint'], 'html': ['htmlhint'], 'javascript': ['eslint'], 'css': ['stylelint']}
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"let g:ale_lint_on_text_changed = 1
+"let g:ale_sign_column_always = 0
+nmap <silent> <A-k> <Plug>(ale_previous_wrap)
+nmap <silent> <A-j> <Plug>(ale_next_wrap)
+"let g:ale_linters = {'python': ['pyls']}
 
 " echodoc
 let g:echodoc#enable_at_startup = 1
