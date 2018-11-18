@@ -12,6 +12,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'PProvost/vim-ps1'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -21,12 +22,17 @@ Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'daeyun/vim-matlab'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'autozimu/LanguageClient-neovim', {
+\   'branch': 'next',
+\   'do': 'bash install.sh',
+\}
 call plug#end()
 
 " Vim Settings
@@ -48,6 +54,7 @@ nmap k gk
 filetype plugin indent on
 set cursorline
 set rnu
+set shellcmdflag=-lc
 
 " seoul256 colorscheme
 "set termguicolors
@@ -83,7 +90,6 @@ let g:airline_powerline_fonts = "1"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#enabled = 1
-set termguicolors
 
 autocmd FileType python setlocal nosmartindent
 
@@ -103,11 +109,24 @@ let g:indentLine_char = '|'
 
 " Ale settings
 let g:ale_completion_enabled = 1
-"let g:ale_lint_on_text_changed = 1
+let g:ale_lint_on_text_changed = 'never'
 "let g:ale_sign_column_always = 0
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'css': ["prettier"],
+\   'html': ["prettier"],
+\   'javascript': ["prettier"],
+\   'json': ["prettier"],
+\}
+let g:ale_linters = {
+\   'python': ['pyls'], 
+\   'css': ['stylelint'],
+\   'html': ['htmlhint'],
+\   'javascript': ['eslint'],
+\   'json': ['jsonlint'],
+\}
 nmap <silent> <A-k> <Plug>(ale_previous_wrap)
 nmap <silent> <A-j> <Plug>(ale_next_wrap)
-"let g:ale_linters = {'python': ['pyls']}
 
 " echodoc
 let g:echodoc#enable_at_startup = 1
