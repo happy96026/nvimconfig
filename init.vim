@@ -1,44 +1,50 @@
 ﻿call plug#begin('~/.local/share/nvim/plugged')
+" Color Scheme
 Plug 'skielbasa/vim-material-monokai'
 Plug 'junegunn/seoul256.vim'
 Plug 'kaicataldo/material.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
+Plug 'joshdick/onedark.vim'
+" Linting, fixing, completion
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim'
+" Powershell
+Plug 'PProvost/vim-ps1'
+" HTML
+Plug 'othree/html5.vim'
+" JS
+Plug 'pangloss/vim-javascript'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" CSS
+Plug 'JulesWang/css.vim'
+" Python
+Plug 'zchee/deoplete-jedi'
+" C
+Plug 'zchee/deoplete-clang'
+" Others
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'PProvost/vim-ps1'
-Plug 'alvan/vim-closetag'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'JulesWang/css.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/echodoc.vim'
-Plug 'zchee/deoplete-jedi'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'rbgrouleff/bclose.vim'
-"Plug 'mattn/emmet-vim'
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'autozimu/LanguageClient-neovim', {
-\   'branch': 'next',
-\   'do': 'bash install.sh',
-\}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+"Plug 'mattn/emmet-vim'
 call plug#end()
 
 " Vim Settings
 set hidden
 set number
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
+"set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab
 set autoindent copyindent
 set hlsearch
 set scrolloff=3
@@ -119,6 +125,7 @@ let g:ale_fixers = {
 \   'json': ["prettier"],
 \}
 let g:ale_linters = {
+\   'c': ['clang'], 
 \   'python': ['pyls'], 
 \   'css': ['stylelint'],
 \   'html': ['htmlhint'],
