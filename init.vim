@@ -11,15 +11,21 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'PProvost/vim-ps1'
 " HTML
 Plug 'othree/html5.vim'
-" JS
+" JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" TypeScript
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 " CSS
 Plug 'JulesWang/css.vim'
 " Python
 Plug 'zchee/deoplete-jedi'
 " C
 Plug 'zchee/deoplete-clang'
+" PHP
+Plug '2072/PHP-Indenting-for-VIm'
+"Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Others
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
