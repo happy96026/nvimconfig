@@ -16,7 +16,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+"Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 " CSS
 Plug 'JulesWang/css.vim'
 " Python
@@ -26,6 +26,8 @@ Plug 'zchee/deoplete-clang'
 " PHP
 Plug '2072/PHP-Indenting-for-VIm'
 "Plug 'captbaritone/better-indent-support-for-php-with-html'
+" JSON
+Plug 'elzr/vim-json'
 " Others
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -116,6 +118,9 @@ augroup nerdtreedisablecursorline
     autocmd FileType nerdtree setlocal nocursorline
 augroup end
 
+" NerdCommenter settings
+let NERDSpaceDelims = 1
+
 " IndentLines settings
 let g:indentLine_char = '|'
 
@@ -128,7 +133,9 @@ let g:ale_fixers = {
 \   'css': ["prettier"],
 \   'html': ["prettier"],
 \   'javascript': ["prettier"],
+\   'typescript': ['prettier'],
 \   'json': ["prettier"],
+\   'scss': ["prettier"],
 \}
 let g:ale_linters = {
 \   'c': ['clang'], 
@@ -136,6 +143,7 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \   'html': ['htmlhint'],
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint', 'tsserver'],
 \   'json': ['jsonlint'],
 \}
 nmap <silent> <A-k> <Plug>(ale_previous_wrap)
@@ -147,6 +155,7 @@ set noshowmode
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
+autocmd FileType typescript call deoplete#custom#buffer_option('auto_complete', v:false)
 set completeopt-=preview
 "autocmd InsertLeave * silent! pclose!
 
@@ -156,3 +165,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "set ambiwidth=double
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+" JSON
+let g:vim_json_syntax_conceal = 0
