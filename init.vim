@@ -1,28 +1,20 @@
 call plug#begin('~/.local/share/nvim/plugged')
 " Linting, fixing, completion
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim'
 " Powershell
 Plug 'PProvost/vim-ps1'
 " HTML
 Plug 'othree/html5.vim'
 " JS
 Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " CSS
 Plug 'JulesWang/css.vim'
-" Python
-Plug 'zchee/deoplete-jedi'
-" C
-Plug 'zchee/deoplete-clang'
 " Others
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'Shougo/echodoc.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -44,10 +36,8 @@ vmap k gk
 nmap j gj
 nmap k gk
 filetype plugin indent on
-set cursorline
+" set cursorline
 set rnu
-set shell=powershell
-"set shellcmdflag=-lc
 hi NonText guifg=bg
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
