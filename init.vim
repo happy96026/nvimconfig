@@ -10,6 +10,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
+Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 " onedark colorscheme
@@ -39,7 +40,7 @@ set rnu
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>bd :bd<CR>
+" nnoremap <leader>bd :bd<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <c-p> :FZF<CR>
 vnoremap j gj
