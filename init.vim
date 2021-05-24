@@ -19,6 +19,8 @@ if (has('termguicolors'))
 endif
 syntax on
 colorscheme onedark
+highlight Normal guibg=none
+highlight NonText guibg=none
 
 filetype plugin indent on
 set hidden
@@ -27,7 +29,7 @@ set nowritebackup
 set cmdheight=2
 set signcolumn=yes
 set number
-set tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent copyindent smartindent
 set hlsearch
